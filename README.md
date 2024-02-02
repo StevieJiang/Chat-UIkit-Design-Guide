@@ -1,5 +1,5 @@
-# 直播聊天室人机交互界面工具包设计指南 (V1.0.0)
-Design Guide of Live Stream Chat UIkit(Beta)
+# 移动端单/群聊人机交互界面工具包设计指南
+Design Guide of Chat UIkit Mobile
 
 <img src="https://s2.loli.net/2024/01/02/s5aIcuCmEoZx1yM.png" width="100%" >
 
@@ -115,7 +115,7 @@ End Color 用户可配置色相（Hue），亮度以 0(20%) / 1(30%) / 2(40%) / 
 
 ##### 1.1.4.1.透明色（Alpha Color）:
 
-在本案内带有透明度的组件仅有弹幕消息背景色、礼物消息背景色、模态背景色、轻提示背景色四种，应用范围有限，所以单独定义两个特殊的颜色类用于以上四种组件：Alpha onlight(hsl0, 0%, 0%) 和 Alpha ondark(hsl0, 0%, 100%)，Alpha 值被指定为 0(0.0) / 1(0.1) / 2(0.2) / 3(0.3) / 4(0.4) / 5(0.5) / 6(0.6) / 7(0.7) / 8(0.8) / 9(0.9) / 95(0.95) / 98(0.98) / 100(1.0) 十三个梯度值，共 26 种颜色用例，以调整组件的背景色透明度。
+在本案内带有透明度的组件仅有模态背景色、轻提示背景色，应用范围有限，单独定义两个特殊的颜色类用于以上四种组件：Alpha onlight(hsl0, 0%, 0%) 和 Alpha ondark(hsl0, 0%, 100%)，Alpha 值被指定为 0(0.0) / 1(0.1) / 2(0.2) / 3(0.3) / 4(0.4) / 5(0.5) / 6(0.6) / 7(0.7) / 8(0.8) / 9(0.9) / 95(0.95) / 98(0.98) / 100(1.0) 十三个梯度值，共 26 种颜色用例，以调整组件的背景色透明度。
 
 <img src="https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk1141.png" width="800" >
 
@@ -362,3 +362,261 @@ Message Bubble(Large Radius)
 Message Bubble(Large Radius)
 
 ![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk162.png)
+
+## 2.小控件（Widgets）
+小控件为最基础的视觉交互模块。
+
+### 2.1.按钮(Bottom)
+按钮组件分为普通按钮、文本按钮、图标按钮三种，每种包含的状态有 Enabled、Hovered(限 web 端) 、Pressed、Loading、Pressed 五种状态，同时分为大、中、小三种按钮尺寸以贴合不同容器的使用。
+
+### 2.1.1.普通按钮（Normal）
+
+普通按钮分主要操作（Primary）和次要操作（Secondary）两种类型。
+
+#### 2.1.1.1.主要操作（Primary）
+
+主要操作用于推荐行为，一般背景色为主题色(Primary5\Primary6)或者渐变主题色，被禁用时置灰显示，圆角可配，依据需要可增加左侧或右侧 icon
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk2111.png)
+
+#### 2.1.1.2.次要操作（Secondary）
+
+次要操作用于辅助主要操作，一般不单独出现，一般背景色为亮色(Neutral98)或者暗色(Neutral1)，同时有描边，被禁用时置灰显示，圆角可配
+依据需要可增加左侧或右侧 icon
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk2112.png)
+
+### 2.1.2.文字按钮(Text)
+
+文字按钮仅有前景色，也分为主要操作和次要操作，一般用于更频繁的常规操作（如表单填写的下一步、取消，消息的显示、隐藏等）或者在页面有普通按钮（主要操作）时作为更次一级操作出现
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk212.png)
+
+### 2.1.3.图标按钮（Icon）
+
+图标按钮为组件位置局促又必须出现按钮时的补充形式，如输入条的键盘切换、顶部条的更多操作、表单填写时的推荐操作、输入框的清空和下拉操作等。
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk213.png)
+
+需要注意的是，在 web 端，如非特殊说明，图标按钮必须搭配 Popover 使用，以交代清楚按钮的具体操作行为。如：
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk213b.png)
+
+### 2.2.输入框(Input)
+
+输入框为需要输入较少文字时使用的组件。
+也按照所放组件的大小分为大中小三种尺寸可配项，样式上，背景色和描边颜色可开关，圆角可配，状态上分为失焦未填写、失焦填写、聚焦未填写、聚焦填写、禁用填写、禁用未填写六种。
+
+<img src="https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk22.png" width="390" >
+
+### 2.3.输入区域(InputArea)
+
+输入框为需要输入较多文字时使用的组件。
+在用于输入器的文本输入，和表单中、发布内容时需要填写较多文本时使用，样式上，背景色和描边颜色可开关，圆角可配，可显示最大输入字符数分数。状态上分为失焦未填写、失焦填写、聚焦未填写、聚焦填写、禁用填写、禁用未填写六种。
+
+<img src="https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk23.png" width="390" >
+
+### 2.4.单选器和多选器(Checkboxes n' Radios)
+单选器和多选器允许终端用户在列表中选择一项或者多项。分为选中、未选中、选中禁用、未选中禁用四种状态。
+(配图)
+
+### 2.5.开关(Switch)
+开关为终端用户对列表项打开和关闭的直观操作。
+分为关闭、打开、关闭禁用、打开禁用四中状态。
+此操作一般需要避免自动化开启和关闭，必须终端用户主动操作。
+
+样式采用iOS或Material 默认样式，开启颜色对应Primary5/Primary6的KeyColor色值。
+（配图）
+
+### 2.6.滑块(Silder)
+滑块用于终端用户精确设置数值。
+可配项有：两侧图标或单侧数值，状态上分为禁用和可用。
+(配图)
+
+### 2.7.浮层菜单(PopMenu)
+浮层菜单为非常住的的选项或列表的展示。支持配置操作项有无左侧icon
+
+### 2.8.头像(Avatar)
+头像是一类信息数据展示的控件，如用户、某个操作项的头像展示，常放置于个人信息页、与用户相关的列表项中
+头像圆角有两个枚举值：Extra Small（r=4）、Extra Large（r=½ Height）以配合不同主题的使用
+头像的尺寸可以依据所属组件的大小自由配置，但需要注意的是，头像的比例永远是 1:1
+
+### 2.8.1.图片头像
+
+能读取用户头像信息时展示图片头像。
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk241.png)
+
+### 2.8.2.字符头像
+
+用户未上传头像时显示字符头像，字符头像分为单字符和双字符两种
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk242.png)
+
+### 2.8.3.组合头像
+
+组合头像用于用户未上传数据时的群组聊天自动生成头像
+本案不涉及
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk243.png)
+
+### 2.8.4.图标头像
+
+图标头像用于获取不到用户头像信息的空状态以及表单单项有 icon 时的头像。
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk244.png)
+
+### 2.8.5.头像徽章
+
+头像可配置徽章（Badge）以体现用户的在离线等状态，徽章位置分两种：右下和右上
+
+<img src="https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk245.png" width="440" >
+
+### 2.9.徽章(Badge)
+徽章用于导航项、列表项、头像处，用于显示状态、通知和计数。
+配置项有：计数的有无、标准和小、icon的有无。
+(配图)
+
+### 2.10.表情符号(Emojis)
+
+### 2.10.1.Twemoji [↗](https://raw.githubusercontent.com/twitter/twemoji)
+
+表情使用开源可免费商用的 Twemoji 作为基本表情，默认提供 52 个表情作为内置的表情，用户可根据自己的产品规划从 twemoji 提供的 3,245 个表情中进行替换增减；
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk291.png)
+
+### 2.10.2.表情模版(Emoji Template)
+
+如用户需替换 Twemoji，或者需要自己创作表情，需依照以下模板进行替换或绘制；
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk292.png)
+
+### 2.10.3.表情组件状态（State）
+
+表情组件的状态分为以下 4 种：
+启用 Enabled、悬停 Hovered（仅限 web 端）、按下 Pressed、聚焦 Focused（本案不涉及）
+悬停时，背景色递增一级；按下时，背景色递减一级；聚焦时，背景色转换为 Key Color。
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk293.png)
+
+### 2.11.轻提示(Toast)
+请提示为针对终端用户当前操作的简单反馈。
+分为有图标、无图标两类。
+(配图)
+
+### 2.12.模态背景(Model)
+模态为临时的弹出的关键信息，需要用户主动操作来退出。
+模态背需配合弹窗(Alert)使用。颜色可配置为任意AlphaColor，也可设置背景模糊效果。
+(配图)
+
+### 2.13.索引(Index)
+索引应用于联系人页面通过分类迅速查找联系人。
+
+#### 2.13.1.目录索引(SectionIndex)
+*奋笔疾书中 敬请期待*
+
+#### 2.13.2.列表索引(IndexInList)
+*奋笔疾书中 敬请期待*
+
+### 2.14.底部标签栏(BottomTabs)
+*奋笔疾书中 敬请期待*
+
+### 2.15.顶部标签栏(TopTabs)
+*奋笔疾书中 敬请期待*
+
+## 3.控件（Components）
+
+### 3.1.顶部条（TopBar）
+顶部条用于展示当前页面标题，并可对当前页面进行整体的控制。
+左侧支持配置返回操作、支持有/无头像、支持有/无小标题，右侧支持 1 至 3 个action。
+(配图)
+
+### 3.2.搜索条（SearchBar）
+搜索条用于搜索当前页面的项。
+可配项有左侧返回icon、是否显示取消按钮。
+### 3.3.底部条（BottomBars）
+*奋笔疾书中 敬请期待*
+#### 3.3.1.底部操作条(navigation_bar)
+*奋笔疾书中 敬请期待*
+#### 3.3.2.输入条(InputBar)
+输入条为会话详情页文本等消息的发布器。
+可配置左侧actionbtn、右侧Action1、Action2、Action3、sendbtn
+样式上支持配置顶部分割线、输入框圆角样式、sendbtn可配置为文本按钮或者图标按钮。
+（配图）
+#### 3.3.3.录音浮层(RecordingModel)
+录音浮层为录制和发送语音消息的组件。
+
+### 3.4.表情盘(EmojisPick)
+
+表情键盘是发送 app 内自建表情的键盘，内容上支持表情个数的增减，底部发送和退格按钮支持修改圆角。同时应满足接入第三方表情/贴纸库。
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk34.png)
+
+本键盘不同于系统自带的 emoji 输入键盘，通过此组件输入的 emoji 不会同步为系统的 emoji，而是在任何平台同一 app 内均显示 app 内自建的表情符号。为满足版权方面的法律要求，请勿使用非申明开源可免费商用的表情符号（不限资源图或者源码）在 App 中（如：集成苹果表情符号在自己的 app 内，这样或许会导致 App 无法上架苹果应用商店）
+
+### 3.5.列表项(ListItem)
+
+#### 3.5.1.表单列表项(FromItem)
+表单列表项应用再联系人/群组详情页面/App设置页面的表单中，
+支持点击事件、右侧可配置按钮、数据展示、开关、滑动条、单/多选器等功能，左侧可配置单/多选器。
+信息展示上可配置左侧头像、subtitle、列表项的分类标题（Headline）和注解（postil）
+(配图)
+
+#### 3.5.2.会话列表项(ConversationItem)
+会话列表项为会话详情的入口，可展示的信息有:联系人头像(Avatar)、联系人昵称(Title)、最新消息（Subtitle）、新消息通知（Badge）、新消息时间戳（Time）。
+样式上支持头像配置大/小圆角、是否配置列表项的分割线。
+(配图)
+
+#### 3.5.3.联系人列表项(ContactsItem)
+联系人列表项为联系人详情的入口，可展示的信息有:联系人头像(Avatar)、联系人昵称(Title)、联系人状态（Subtitle）。
+样式上支持头像配置大/小圆角、是否配置列表项的分割线。
+（配图）
+
+### 3.6.弹窗(Alert)
+弹窗通知是一类模态提示，会提示用户正在进行的操作所需的关键信息，如警告等，或需要用户填写关键信息（通过输入框），需用户做出主要操作或次要操作。
+内容上，description 可配、输入框可配、操作项支持最多三个。
+样式上，弹窗的圆角可配，需要注意的是，组件内部的输入框和操作按钮圆角需要同弹窗按钮的圆角适配，以达成风格的一致性。
+
+![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk27.png)
+
+### 3.7.操作面板(ActionSheet)
+操作表单是以模态形式展示的多操作项表单，单个操作项分为 Enabled、Pressed、Disabled、Destructived 四种状态，以及 Cancel 特殊类型。同时可配置是否显示 icon、是否有分割线(stroke)
+此组件仅限移动端
+
+<img src="https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk25.png" width="390" >
+
+
+## 4.消息气泡(MessageBubble)
+
+### 4.1.文本消息(TextsMsg)
+文本消息为发送字符和emoji表情时使用的气泡样式。
+（配图）
+### 4.2.语音消息(AudioMsg)
+文本消息为发送语音时使用的气泡样式。
+气泡宽度会随着语音消息的时长而改变宽度。支持点击后播放。播放中有动画显示。
+（配图）
+### 4.3.文件消息(FileMsg)
+文件消息为发送文件时候展示的气泡样式。
+支持显示的字段有：文件图标、文件名（Title）、文件大小（Subtitle）
+（配图）
+### 4.4.联系人消息(ContactMsg)
+联系人消息为一种展示联系人的气泡样式，支持点击事件，
+支持显示的字段有：联系人头像、联系人昵称（Title）
+（配图）
+### 4.5.缩略图消息(ImgMsg)
+缩略图消息为发送图片和视频消息时的消息气泡。
+展示规则:
+
+### 4.6.顶部附加消息(DescantMsg)
+### 4.7.底部附加消息(OrganumMsg)
+*本期不涉及*
+
+## 5.模块视图（Module View）
+### 5.1.会话列表(ConversationList)
+### 5.2.联系人列表(ContactsList)
+### 5.3.会话详情(ConversationDetail)
+### 5.4.联系人详情（ConversationDetail）
+### 5.5.群组详情(GroupDetail)
+
+## 5.设计资源（Design Resources）
+设计资源详见 [figma 链接](https://www.figma.com/community/file/1327193019424263350/chat-uikit-for-mobile)。
