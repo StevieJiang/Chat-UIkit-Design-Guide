@@ -1,7 +1,7 @@
 # 移动端单/群聊人机交互界面工具包设计指南
 Design Guide of Chat UIkit Mobile
 
-<img src="https://s2.loli.net/2024/01/02/s5aIcuCmEoZx1yM.png" width="100%" >
+<img src="https://github.com/StevieJiang/Chat-UIkit-Design-Guide/blob/main/CUIimg/CUIcover.png" width="100%" >
 
 ## 0.总的设计原则
 
