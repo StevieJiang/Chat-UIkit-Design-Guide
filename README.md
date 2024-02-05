@@ -1,7 +1,7 @@
 # 移动端单/群聊人机交互界面工具包设计指南
 Design Guide of Chat UIkit Mobile
 
-<img src="https://github.com/StevieJiang/Chat-UIkit-Design-Guide/blob/main/CUIimg/CUIcover.png" width="100%" >
+<img src="https://github.com/StevieJiang/Chat-UIkit-Design-Guide/blob/main/CUIimg/CUIcover2.png" width="100%" >
 
 ## 0.总的设计原则
 
@@ -164,13 +164,13 @@ Neutral Special 和 Primary 的默认 Hue 值(色相)类似，为近似色，也
 
 组件一般采用较大的圆角，柔和轻盈
 
-![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk121.png)
+![image text](https://github.com/StevieJiang/Chat-UIkit-Design-Guide/blob/main/CUIimg/1.2.1.png)
 
 ### 1.2.2.硬朗主题
 
 组件一般避免比较大的圆，硬朗实在
 
-![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk122.png)
+![image text](https://github.com/StevieJiang/Chat-UIkit-Design-Guide/blob/main/CUIimg/1.2.2.png)
 
 以上两种主题可通过应用渐变主题色（Primary Gradient）得到两外两种渐变色主题。
 至于业务相关的主题，如“社交”、“游戏”、“教育”、“商务”等主题分类，因违反本案的最基本设计原则“在业务形态上尽量不替用户做决定”，所以不在本期考虑范围内。
