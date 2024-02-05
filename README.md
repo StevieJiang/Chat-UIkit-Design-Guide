@@ -168,7 +168,7 @@ Neutral Special 和 Primary 的默认 Hue 值(色相)类似，为近似色，也
 
 ### 1.2.2.硬朗主题
 
-组件一般避免比较大的圆，硬朗实在
+组件一般避免比较大的圆角，硬朗实在
 
 ![image text](https://github.com/StevieJiang/Chat-UIkit-Design-Guide/blob/main/CUIimg/1.2.2.png)
 
@@ -256,11 +256,9 @@ Neutral Special 和 Primary 的默认 Hue 值(色相)类似，为近似色，也
 
 ### 1.5.1.背景模糊（Backround Blur）
 
-背景模糊主要应用于组件背景色使用 Alpha color 时，如组件背景色的透明度会造成组件前后层级干扰的话，则推荐使用背景模糊解决，比如：
-
-![image text](https://raw.githubusercontent.com/StevieJiang/Chatroom-UIkit-Design-Guide/main/Doc%20Image/cruk151.png)
-
+背景模糊主要应用于组件背景色使用 Alpha color 时，如组件背景色的透明度会造成组件前后层级干扰的话，则推荐使用背景模糊解决，
 也应用于模态显示的弹出层的背景虚化；
+
 背景模糊的模糊半径值默认为 20
 
 ```
